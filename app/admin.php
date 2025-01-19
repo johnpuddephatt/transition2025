@@ -7,16 +7,17 @@ include '_custom-controls.php';
 
 
 add_action('enqueue_block_editor_assets', function () {
-
     \Roots\bundle('editor')->enqueue();
+    \Roots\bundle('customizer')->enqueue();
 }, 100);
 
 /**
  * Customizer JS
  */
-add_action('customize_preview_init', function () {
-    wp_enqueue_script('sage/customizer.js', \Roots\asset('scripts/customizer.js'), ['customize-preview'], null, true);
-});
+// add_action('customize_preview_init', function () {
+//     // wp_enqueue_script('sage/customizer.js', \Roots\asset('scripts/customizer.js'), ['customize-preview'], null, true);
+//     add_action('enqueue_scr', function () {}, 100);
+// });
 
 /**
  * Hide WP Admin on frontend
@@ -288,7 +289,7 @@ add_action('customize_register', function (\WP_Customize_Manager $wp_customize) 
         }
     );
 
-    $wp_customize->add_control(new \App\CustomControls\Skyrocket_Pill_Checkbox_Custom_Control(
+    $wp_customize->add_control(new \Skyrocket_Pill_Checkbox_Custom_Control(
         $wp_customize,
         'homepage_projects',
         array(

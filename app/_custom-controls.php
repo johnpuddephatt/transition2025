@@ -1,7 +1,5 @@
 <?php
 
-namespace App\CustomControls;
-
 /**
  * Skyrocket Customizer Custom Controls
  *
@@ -66,7 +64,7 @@ if (class_exists('\WP_Customize_Control')) {
 		 */
 		public function enqueue()
 		{
-			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
+			// wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
@@ -112,7 +110,7 @@ if (class_exists('\WP_Customize_Control')) {
 		 */
 		public function enqueue()
 		{
-			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
+			// wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
@@ -159,7 +157,7 @@ if (class_exists('\WP_Customize_Control')) {
 		 */
 		public function enqueue()
 		{
-			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
+			// wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
@@ -204,8 +202,8 @@ if (class_exists('\WP_Customize_Control')) {
 		 */
 		public function enqueue()
 		{
-			wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery'), '1.0', true);
-			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
+			// wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery'), '1.0', true);
+			// wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
@@ -332,8 +330,8 @@ if (class_exists('\WP_Customize_Control')) {
 		 */
 		public function enqueue()
 		{
-			wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.0', true);
-			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
+			// wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.0', true);
+			// wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
@@ -465,8 +463,8 @@ if (class_exists('\WP_Customize_Control')) {
 		public function enqueue()
 		{
 
-			wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.1', true);
-			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
+			// wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.1', true);
+			// wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer

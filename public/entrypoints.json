@@ -12,11 +12,23 @@
   "editor": {
     "js": [
       "js/runtime.375ea9.js",
-      "js/editor.eddddc.js"
+      "js/editor.bda079.js"
     ],
     "css": [
       "css/editor.84ceee.css"
     ],
     "dependencies": []
+  },
+  "customizer": {
+    "js": [
+      "js/runtime.375ea9.js",
+      "js/customizer.7efc27.js"
+    ],
+    "css": [
+      "css/customizer.22adbf.css"
+    ],
+    "dependencies": [
+      "jquery"
+    ]
   }
 }

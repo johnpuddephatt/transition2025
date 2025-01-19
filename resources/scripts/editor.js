@@ -2,13 +2,15 @@
 
 wp.domReady( function() {
 
+    if(wp.data.dispatch( 'core/edit-post')) {
   wp.data.dispatch( 'core/edit-post').removeEditorPanel( 'taxonomy-panel-category' ) ;
   wp.data.dispatch( 'core/edit-post').removeEditorPanel( 'taxonomy-panel-post_tag' );
   wp.data.dispatch( 'core/edit-post').removeEditorPanel( 'discussion-panel' );
+    };
 
   wp.blocks.unregisterBlockType( 'core/verse' );
   wp.blocks.unregisterBlockType( 'core/cover' );
-  wp.blocks.unregisterBlockType( 'core/more' );
+//   wp.blocks.unregisterBlockType( 'core/more' );
   wp.blocks.unregisterBlockType( 'core/code' );
   wp.blocks.unregisterBlockType( 'core/nextpage' );
   wp.blocks.unregisterBlockType( 'core/preformatted' );
@@ -22,7 +24,7 @@ wp.domReady( function() {
   wp.blocks.unregisterBlockType( 'core/search' );
   wp.blocks.unregisterBlockType( 'core/shortcode' );
   wp.blocks.unregisterBlockType( 'core/latest-posts' );
-  wp.blocks.unregisterBlockType( 'core/latest-comments' );
+//   wp.blocks.unregisterBlockType( 'core/latest-comments' );
   wp.blocks.unregisterBlockType( 'core/spacer' );
 
   wp.blocks.unregisterBlockStyle( 'core/quote', 'default' );
