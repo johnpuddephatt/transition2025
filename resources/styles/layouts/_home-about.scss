@@ -67,6 +67,7 @@
   .container {
     transform-style: preserve-3d;
     width: 100%;
+    z-index: 9;
     // position: relative;
     &::after {
       content: "";

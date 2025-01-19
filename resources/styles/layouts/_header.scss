@@ -121,11 +121,12 @@ header.banner {
       justify-content: center;
       background-color: $base-font-color;
       transition: transform $base-duration;
+              z-index: 99;
+
     }
 
     input:checked {
       ~ .trigger {
-        z-index: 99;
         transform: translateX(0);
         opacity: 1;
       }

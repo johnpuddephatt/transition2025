@@ -16,7 +16,7 @@
 
         @if($post->related_posts)
           <div class="related-posts">
-            <h2 class="related-posts--title">More {{ strtolower($post->category->name) }}</h2>
+            <h3 class="related-posts--title">More {{ strtolower($post->category->name) }}</h3>
             @foreach($post->related_posts as $related_post)
               <a class="related-posts--item" href="{{ $related_post->link }}">
                 <h3 class="related-posts--item--title">{{ $related_post->post_title  }}</h3>
@@ -34,7 +34,6 @@
           </div>
         @endif
 
-        @include('partials.newsletter')
 
       </main>
     </div>

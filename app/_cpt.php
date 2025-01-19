@@ -57,6 +57,8 @@ add_action("init", function () {
             "hierarchical" => false,
             "label" => "Services", // display name
             "query_var" => false,
+            "has_archive" => true,
+
             "show_ui" => true,
             "show_admin_column" => true,
             "show_in_rest" => true,

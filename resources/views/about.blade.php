@@ -11,4 +11,6 @@
       @include('partials.content-page-about')
     </div>
   @endwhile
+    @include('partials.newsletter')
+
 @endsection

@@ -23,6 +23,7 @@
     .has-large-font-size {
       font-size: modular-scale(1);
       font-weight: 600;
+      line-height: $heading-line-height;
     }
   }
 

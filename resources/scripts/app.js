@@ -48,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
       barba.wrapper.classList.remove('is-animating');
       document.body.className = document.querySelector('[data-barba="container"]').dataset.barbaClass; // copy new classes onto body class
       window.routes.loadEvents();
+
+     
       // console.log('gtagging');
       // window.gtag('config', 'G-1XNVY0FD6J', {'page_path': window.location.pathname});
       // window.gtag('set', 'page', window.location.pathname);
@@ -57,6 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     barba.hooks.enter(() => {
       history.scrollRestoration = 'manual';
+
+       if(window.location.hash) {
+        let hash = window.location.hash.substring(1);
+        console.log('Hash',hash);
+        let el = document.getElementById(hash);
+        if(el) {
+          console.log('Srolling to',el.id);
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
 
     barba.init({

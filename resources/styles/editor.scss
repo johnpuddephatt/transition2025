@@ -2,9 +2,19 @@
 @import "common/variables";
 @import "common/extends";
 
-/** Import everything from autoload */
-// @import "./autoload/**/*";
 @import "components/gutenberg";
+// @import "components/typography";
+
+%underlined-link {
+  background-image: linear-gradient(to top, transparentize($vanilla, 0.5) 50%, transparent 50%);
+  background-size: 100% 25%;
+  background-repeat: no-repeat;
+  background-position: left 90%;
+
+  &:hover {
+    background-image: linear-gradient(to top, $vanilla 50%, transparent 50%);
+  }
+}
 
 /*
  * Style overrides to fix gutenberg quirks
@@ -17,6 +27,17 @@
 
 .wp-block {
   max-width: $medium-screen;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  font-family: $base-font-family;
+
+ a {
+  color: $base-font-color;
+  text-decoration: none;
+  font-weight: 500;
+        @extend %underlined-link;
+      }
 
   p {
     max-width: $max-line-length;
@@ -25,4 +46,96 @@
   &.is-style-two-columns {
     max-width: $medium-screen !important;
   }
+
+  .wp-block-image {
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 1.5 * $base-spacing;
+      margin-bottom: $base-spacing;
+    }
+
+    p {
+      max-width: $max-line-length;
+      font-size: modular-scale(-1);
+      font-weight: 500;
+      line-height: $base-line-height;
+
+      &.has-large-font-size {
+        font-size: modular-scale(1);
+        font-weight: 600;
+      }
+
+      &.has-background {
+        position: relative;
+        margin: 2 * $base-spacing 0;
+        padding: 1.5 * $base-spacing 2 * $base-spacing;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2 * $base-spacing;
+          height: 2 * $base-spacing;
+          content: "";
+          border: $base-spacing solid white;
+          border-right-color: transparent;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+
+    ul,
+    ol {
+      margin: $base-spacing 0 1.5 * $base-spacing;
+    }
+
+    li {
+      margin: $small-spacing 0;
+      padding-left: $base-spacing;
+    }
+
+    ol {
+      counter-reset: list;
+
+      li {
+        &::before {
+          counter-increment: list;
+          content: counter(list) ".";
+          display: block;
+          float: left;
+          margin-left: -1.25 * $base-spacing;
+          margin-top: -$small-spacing/4;
+          font-size: modular-scale(2);
+          font-weight: 500;
+        }
+      }
+    }
+
+    ul li {
+      &::marker {
+        display: block;
+        float: left;
+        margin-left: -1.25 * $base-spacing;
+        margin-top: $small-spacing/1.5;
+        transform: rotate(-45deg);
+        width: 1.5 * $small-spacing;
+        height: 0.2em;
+        content: "";
+        background-color: $base-font-color;
+      }
+    }
+
+    p,
+    ol,
+    ul,
+    figcaption {
+      a {
+        @extend %underlined-link;
+      }
+    }
 }

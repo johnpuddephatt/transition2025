@@ -1,3 +1,14 @@
+.tags {
+    @media screen and (min-width: $medium-screen) {
+
+  margin-top: -1.5 * $base-spacing;
+    }
+  margin-bottom: 2 * $base-spacing;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $small-spacing;
+}
+
 .tag {
   display: inline-block;
   background-color: $base-font-color;
@@ -7,4 +18,16 @@
   padding: $small-spacing/2 $small-spacing $small-spacing/3;
   z-index: 9;
   position: relative;
+  font-weight: 400;
+
+  strong {
+    font-weight: 400;
+  }
+
+  &.invert {
+    font-size: modular-scale(-2);
+    background-color: white;
+    color: $base-font-color;
+    border: 1px solid $base-font-color;
+  }
 }

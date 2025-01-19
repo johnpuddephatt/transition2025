@@ -5,31 +5,17 @@ namespace App;
 include '_custom-controls.php';
 
 
-/**
- * Register our Gutenberg customisations
- */
 
-// add_action('enqueue_block_editor_assets', function () {
-//     wp_enqueue_script(
-//         'myguten',
-//         asset_path('scripts/gutenberg.js'),
-//         array('wp-blocks', 'wp-dom-ready', 'wp-edit-post'),
-//     );
-// });
+add_action('enqueue_block_editor_assets', function () {
 
-// add_action('enqueue_block_assets', function () {
-//     if (is_admin()) {
-//         wp_enqueue_style('myguten-style', asset_path('styles/gutenberg.css'));
-//     }
-// });
-
-
+    \Roots\bundle('editor')->enqueue();
+}, 100);
 
 /**
  * Customizer JS
  */
 add_action('customize_preview_init', function () {
-    wp_enqueue_script('sage/customizer.js', asset_path('scripts/customizer.js'), ['customize-preview'], null, true);
+    wp_enqueue_script('sage/customizer.js', \Roots\asset('scripts/customizer.js'), ['customize-preview'], null, true);
 });
 
 /**
@@ -38,6 +24,8 @@ add_action('customize_preview_init', function () {
 add_action('after_setup_theme', function () {
     show_admin_bar(false);
 });
+
+add_filter("acf/settings/show_admin", "__return_false");
 
 
 /**

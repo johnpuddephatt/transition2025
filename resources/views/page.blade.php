@@ -7,4 +7,6 @@
       @include('partials.content-page')
     </div>
   @endwhile
+    @include('partials.newsletter')
+
 @endsection

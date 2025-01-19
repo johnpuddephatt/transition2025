@@ -8,14 +8,14 @@ class TaxonomyProjectservices extends Composer
 {
 
     protected static $views = [
-        'taxonomy-projectservices',
+        // 'taxonomy-projectservices',
     ];
 
     public function with()
     {
         return [
-            'page' => $this->page(),
-            'projects' => $this->projects(),
+            // 'page' => $this->page(),
+            // 'projects' => $this->projects(),
         ];
     }
 

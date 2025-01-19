@@ -7,7 +7,7 @@ namespace App\CustomControls;
  *
  */
 
-if ( class_exists( '\WP_Customize_Control' ) ) {
+if (class_exists('\WP_Customize_Control')) {
 	/**
 	 * Custom Control Base Class
 	 *
@@ -15,14 +15,16 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Custom_Control extends \WP_Customize_Control {
-		protected function get_skyrocket_resource_url() {
-			if( strpos( wp_normalize_path( __DIR__ ), wp_normalize_path( WP_PLUGIN_DIR ) ) === 0 ) {
+	class Skyrocket_Custom_Control extends \WP_Customize_Control
+	{
+		protected function get_skyrocket_resource_url()
+		{
+			if (strpos(wp_normalize_path(__DIR__), wp_normalize_path(WP_PLUGIN_DIR)) === 0) {
 				// We're in a plugin directory and need to determine the url accordingly.
-				return plugin_dir_url( __DIR__ );
+				return plugin_dir_url(__DIR__);
 			}
 
-			return trailingslashit( get_stylesheet_directory_uri() );
+			return trailingslashit(get_stylesheet_directory_uri());
 		}
 	}
 
@@ -33,14 +35,16 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Custom_Section extends \WP_Customize_Section {
-		protected function get_skyrocket_resource_url() {
-			if( strpos( wp_normalize_path( __DIR__ ), wp_normalize_path( WP_PLUGIN_DIR ) ) === 0 ) {
+	class Skyrocket_Custom_Section extends \WP_Customize_Section
+	{
+		protected function get_skyrocket_resource_url()
+		{
+			if (strpos(wp_normalize_path(__DIR__), wp_normalize_path(WP_PLUGIN_DIR)) === 0) {
 				// We're in a plugin directory and need to determine the url accordingly.
-				return plugin_dir_url( __DIR__ );
+				return plugin_dir_url(__DIR__);
 			}
 
-			return trailingslashit( asset_pathget_stylesheet_directory_uri() );
+			return trailingslashit(assetget_stylesheet_directory_uri());
 		}
 	}
 
@@ -51,7 +55,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	 class Skyrocket_Image_Checkbox_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Image_Checkbox_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -59,27 +64,29 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Enqueue our scripts and styles
 		 */
-		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', \App\asset_path('styles/customizer.css'), array(), '1.0', 'all' );
+		public function enqueue()
+		{
+			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
-		?>
+		public function render_content()
+		{
+?>
 			<div class="image_checkbox_control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
 				<?php } ?>
-				<?php	$chkboxValues = explode( ',', esc_attr( $this->value() ) ); ?>
-				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-multi-image-checkbox" <?php $this->link(); ?> />
-				<?php foreach ( $this->choices as $key => $value ) { ?>
+				<?php $chkboxValues = explode(',', esc_attr($this->value())); ?>
+				<input type="hidden" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($this->value()); ?>" class="customize-control-multi-image-checkbox" <?php $this->link(); ?> />
+				<?php foreach ($this->choices as $key => $value) { ?>
 					<label class="checkbox-label">
-						<input type="checkbox" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( esc_attr( $key ), $chkboxValues ), 1 ); ?> class="multi-image-checkbox"/>
-						<img src="<?php echo esc_attr( $value['image'] ); ?>" alt="<?php echo esc_attr( $value['name'] ); ?>" title="<?php echo esc_attr( $value['name'] ); ?>" />
+						<input type="checkbox" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($key); ?>" <?php checked(in_array(esc_attr($key), $chkboxValues), 1); ?> class="multi-image-checkbox" />
+						<img src="<?php echo esc_attr($value['image']); ?>" alt="<?php echo esc_attr($value['name']); ?>" title="<?php echo esc_attr($value['name']); ?>" />
 					</label>
 				<?php	} ?>
 			</div>
@@ -94,7 +101,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	 class Skyrocket_Text_Radio_Button_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Text_Radio_Button_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -102,27 +110,29 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Enqueue our scripts and styles
 		 */
-		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', \App\asset_path('styles/customizer.css'), array(), '1.0', 'all' );
+		public function enqueue()
+		{
+			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 		?>
 			<div class="text_radio_button_control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
 				<?php } ?>
 
 				<div class="radio-buttons">
-					<?php foreach ( $this->choices as $key => $value ) { ?>
+					<?php foreach ($this->choices as $key => $value) { ?>
 						<label class="radio-button-label">
-							<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
-							<span><?php echo esc_html( $value ); ?></span>
+							<input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($key); ?>" <?php $this->link(); ?> <?php checked(esc_attr($key), $this->value()); ?> />
+							<span><?php echo esc_html($value); ?></span>
 						</label>
 					<?php	} ?>
 				</div>
@@ -138,7 +148,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Image_Radio_Button_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Image_Radio_Button_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -146,26 +157,28 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Enqueue our scripts and styles
 		 */
-		public function enqueue() {
-			wp_enqueue_style( 'skyrocket-custom-controls-css', \App\asset_path('styles/customizer.css'), array(), '1.0', 'all' );
+		public function enqueue()
+		{
+			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 		?>
 			<div class="image_radio_button_control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
 				<?php } ?>
 
-				<?php foreach ( $this->choices as $key => $value ) { ?>
+				<?php foreach ($this->choices as $key => $value) { ?>
 					<label class="radio-button-label">
-						<input type="radio" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php $this->link(); ?> <?php checked( esc_attr( $key ), $this->value() ); ?>/>
-						<img src="<?php echo esc_attr( $value['image'] ); ?>" alt="<?php echo esc_attr( $value['name'] ); ?>" title="<?php echo esc_attr( $value['name'] ); ?>" />
+						<input type="radio" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($key); ?>" <?php $this->link(); ?> <?php checked(esc_attr($key), $this->value()); ?> />
+						<img src="<?php echo esc_attr($value['image']); ?>" alt="<?php echo esc_attr($value['name']); ?>" title="<?php echo esc_attr($value['name']); ?>" />
 					</label>
 				<?php	} ?>
 			</div>
@@ -180,7 +193,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Single_Accordion_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Single_Accordion_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -188,14 +202,16 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Enqueue our scripts and styles
 		 */
-		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', \App\asset_path('scripts/customizer.js'), array( 'jquery' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', \App\asset_path('styles/customizer.css'), array(), '1.0', 'all' );
+		public function enqueue()
+		{
+			wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery'), '1.0', true);
+			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 			$allowed_html = array(
 				'a' => array(
 					'href' => array(),
@@ -212,20 +228,19 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 			);
 		?>
 			<div class="single-accordion-custom-control">
-				<div class="single-accordion-toggle"><?php echo esc_html( $this->label ); ?><span class="accordion-icon-toggle dashicons dashicons-plus"></span></div>
+				<div class="single-accordion-toggle"><?php echo esc_html($this->label); ?><span class="accordion-icon-toggle dashicons dashicons-plus"></span></div>
 				<div class="single-accordion customize-control-description">
 					<?php
-						if ( is_array( $this->description ) ) {
-							echo '<ul class="single-accordion-description">';
-							foreach ( $this->description as $key => $value ) {
-								echo '<li>' . $key . wp_kses( $value, $allowed_html ) . '</li>';
-							}
-							echo '</ul>';
+					if (is_array($this->description)) {
+						echo '<ul class="single-accordion-description">';
+						foreach ($this->description as $key => $value) {
+							echo '<li>' . $key . wp_kses($value, $allowed_html) . '</li>';
 						}
-						else {
-							echo wp_kses( $this->description, $allowed_html );
-						}
-				  ?>
+						echo '</ul>';
+					} else {
+						echo wp_kses($this->description, $allowed_html);
+					}
+					?>
 				</div>
 			</div>
 		<?php
@@ -239,7 +254,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Simple_Notice_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Simple_Notice_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -247,7 +263,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 			$allowed_html = array(
 				'a' => array(
 					'href' => array(),
@@ -268,11 +285,11 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 			);
 		?>
 			<div class="simple-notice-custom-control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo wp_kses( $this->description, $allowed_html ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo wp_kses($this->description, $allowed_html); ?></span>
 				<?php } ?>
 			</div>
 		<?php
@@ -286,7 +303,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Sortable_Repeater_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Sortable_Repeater_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -298,35 +316,39 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Constructor
 		 */
-		public function __construct( $manager, $id, $args = array(), $options = array() ) {
-			parent::__construct( $manager, $id, $args );
+		public function __construct($manager, $id, $args = array(), $options = array())
+		{
+			parent::__construct($manager, $id, $args);
 			// Merge the passed button labels with our default labels
-			$this->button_labels = wp_parse_args( $this->button_labels,
+			$this->button_labels = wp_parse_args(
+				$this->button_labels,
 				array(
-					'add' => __( 'Add', 'skyrocket' ),
+					'add' => __('Add', 'skyrocket'),
 				)
 			);
 		}
 		/**
 		 * Enqueue our scripts and styles
 		 */
-		public function enqueue() {
-			wp_enqueue_script( 'skyrocket-custom-controls-js', \App\asset_path('scripts/customizer.js'), array( 'jquery',  'jquery-ui-core', 'jquery-ui-sortable' ), '1.0', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', \App\asset_path('styles/customizer.css'), array(), '1.0', 'all' );
+		public function enqueue()
+		{
+			wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.0', true);
+			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 		?>
-		  <div class="sortable_repeater_control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+			<div class="sortable_repeater_control">
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
 				<?php } ?>
-				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-sortable-repeater" <?php $this->link(); ?> />
+				<input type="hidden" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($this->value()); ?>" class="customize-control-sortable-repeater" <?php $this->link(); ?> />
 				<div class="sortable_repeater sortable">
 					<div class="repeater">
 						<input type="text" value="" class="repeater-input" placeholder="https://" /><span class="dashicons dashicons-sort"></span><a class="customize-control-sortable-repeater-delete" href="#"><span class="dashicons dashicons-no-alt"></span></a>
@@ -347,7 +369,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Dropdown_Posts_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Dropdown_Posts_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -359,36 +382,39 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Constructor
 		 */
-		public function __construct( $manager, $id, $args = array(), $options = array() ) {
-			parent::__construct( $manager, $id, $args );
+		public function __construct($manager, $id, $args = array(), $options = array())
+		{
+			parent::__construct($manager, $id, $args);
 			// Get our Posts
-			$this->posts = get_posts( $this->input_attrs );
+			$this->posts = get_posts($this->input_attrs);
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 		?>
 			<div class="dropdown_posts_control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<label for="<?php echo esc_attr( $this->id ); ?>" class="customize-control-title">
-						<?php echo esc_html( $this->label ); ?>
+				<?php if (!empty($this->label)) { ?>
+					<label for="<?php echo esc_attr($this->id); ?>" class="customize-control-title">
+						<?php echo esc_html($this->label); ?>
 					</label>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
 				<?php } ?>
 				<select name="<?php echo $this->id; ?>" id="<?php echo $this->id; ?>" <?php $this->link(); ?>>
 					<?php
-						if( !empty( $this->posts ) ) {
-							foreach ( $this->posts as $post ) {
-								printf( '<option value="%s" %s>%s</option>',
-									$post->ID,
-									selected( $this->value(), $post->ID, false ),
-									$post->post_title
-								);
-							}
+					if (!empty($this->posts)) {
+						foreach ($this->posts as $post) {
+							printf(
+								'<option value="%s" %s>%s</option>',
+								$post->ID,
+								selected($this->value(), $post->ID, false),
+								$post->post_title
+							);
 						}
+					}
 					?>
 				</select>
 			</div>
@@ -404,7 +430,8 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 	 * @license http://www.gnu.org/licenses/gpl-2.0.html
 	 * @link https://github.com/maddisondesigns
 	 */
-	class Skyrocket_Pill_Checkbox_Custom_Control extends Skyrocket_Custom_Control {
+	class Skyrocket_Pill_Checkbox_Custom_Control extends Skyrocket_Custom_Control
+	{
 		/**
 		 * The type of control being rendered
 		 */
@@ -420,79 +447,80 @@ if ( class_exists( '\WP_Customize_Control' ) ) {
 		/**
 		 * Constructor
 		 */
-		public function __construct( $manager, $id, $args = array(), $options = array() ) {
-			parent::__construct( $manager, $id, $args );
+		public function __construct($manager, $id, $args = array(), $options = array())
+		{
+			parent::__construct($manager, $id, $args);
 			// Check if these pills are sortable
-			if ( isset( $this->input_attrs['sortable'] ) && $this->input_attrs['sortable'] ) {
+			if (isset($this->input_attrs['sortable']) && $this->input_attrs['sortable']) {
 				$this->sortable = true;
 			}
 			// Check if the pills should be full width
-			if ( isset( $this->input_attrs['fullwidth'] ) && $this->input_attrs['fullwidth'] ) {
+			if (isset($this->input_attrs['fullwidth']) && $this->input_attrs['fullwidth']) {
 				$this->fullwidth = true;
 			}
-		}		/**
+		}
+		/**
 		 * Enqueue our scripts and styles
 		 */
-		public function enqueue() {
+		public function enqueue()
+		{
 
-			wp_enqueue_script( 'skyrocket-custom-controls-js', \App\asset_path('scripts/customizer.js'), array( 'jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.1', true );
-			wp_enqueue_style( 'skyrocket-custom-controls-css', \App\asset_path('styles/customizer.css'), array(), '1.0', 'all' );
+			wp_enqueue_script('skyrocket-custom-controls-js', \Roots\asset('scripts/customizer.js'), array('jquery',  'jquery-ui-core', 'jquery-ui-sortable'), '1.1', true);
+			wp_enqueue_style('skyrocket-custom-controls-css', \Roots\asset('styles/customizer.css'), array(), '1.0', 'all');
 		}
 		/**
 		 * Render the control in the customizer
 		 */
-		public function render_content() {
+		public function render_content()
+		{
 			$reordered_choices = array();
 
-			$saved_choices = $this->value() ? explode( ',', esc_attr( $this->value() ) ) : [];
+			$saved_choices = $this->value() ? explode(',', esc_attr($this->value())) : [];
 
 			// Order the checkbox choices based on the saved order
-			if( $this->sortable && (count($saved_choices) > 0) ) {
-                // echo count($saved_choices);
-                // print_r($this->choices);
-                // print_r($saved_choices);
+			if ($this->sortable && (count($saved_choices) > 0)) {
+				// echo count($saved_choices);
+				// print_r($this->choices);
+				// print_r($saved_choices);
 
-				foreach ( $saved_choices as $value ) {
+				foreach ($saved_choices as $value) {
 
 
-					if( isset( $this->choices[$value] ) ) {
+					if (isset($this->choices[$value])) {
 
 						$reordered_choices[$value] = $this->choices[$value];
-                        unset($this->choices[$value]);
+						unset($this->choices[$value]);
 					}
 				}
 
-                foreach($this->choices as $key => $value) {
-                    $reordered_choices[$key] = $value;
-                }
-
-			}
-			else {
+				foreach ($this->choices as $key => $value) {
+					$reordered_choices[$key] = $value;
+				}
+			} else {
 				$reordered_choices = $this->choices;
 			}
 		?>
 			<div class="pill_checkbox_control">
-				<?php if( !empty( $this->label ) ) { ?>
-					<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+				<?php if (!empty($this->label)) { ?>
+					<span class="customize-control-title"><?php echo esc_html($this->label); ?></span>
 				<?php } ?>
-				<?php if( !empty( $this->description ) ) { ?>
-					<span class="customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+				<?php if (!empty($this->description)) { ?>
+					<span class="customize-control-description"><?php echo esc_html($this->description); ?></span>
 				<?php } ?>
-				<input type="hidden" id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" value="<?php echo esc_attr( $this->value() ); ?>" class="customize-control-sortable-pill-checkbox" <?php $this->link(); ?> />
-				<div class="sortable_pills<?php echo ( $this->sortable ? ' sortable' : '' ) . ( $this->fullwidth ? ' fullwidth_pills' : '' ); ?>">
-				<?php foreach ( $reordered_choices as $key => $value ) { ?>
-					<label class="checkbox-label">
-						<input type="checkbox" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( esc_attr( $key ), $saved_choices, true ), true ); ?> class="sortable-pill-checkbox"/>
-						<span class="sortable-pill-title"><?php echo esc_attr( $value ); ?></span>
-						<?php if( $this->sortable && $this->fullwidth ) { ?>
-							<span class="dashicons dashicons-sort"></span>
-						<?php } ?>
-					</label>
-				<?php	} ?>
+				<input type="hidden" id="<?php echo esc_attr($this->id); ?>" name="<?php echo esc_attr($this->id); ?>" value="<?php echo esc_attr($this->value()); ?>" class="customize-control-sortable-pill-checkbox" <?php $this->link(); ?> />
+				<div class="sortable_pills<?php echo ($this->sortable ? ' sortable' : '') . ($this->fullwidth ? ' fullwidth_pills' : ''); ?>">
+					<?php foreach ($reordered_choices as $key => $value) { ?>
+						<label class="checkbox-label">
+							<input type="checkbox" name="<?php echo esc_attr($key); ?>" value="<?php echo esc_attr($key); ?>" <?php checked(in_array(esc_attr($key), $saved_choices, true), true); ?> class="sortable-pill-checkbox" />
+							<span class="sortable-pill-title"><?php echo esc_attr($value); ?></span>
+							<?php if ($this->sortable && $this->fullwidth) { ?>
+								<span class="dashicons dashicons-sort"></span>
+							<?php } ?>
+						</label>
+					<?php	} ?>
 				</div>
 			</div>
-		<?php
+<?php
 		}
 	}
-
 }

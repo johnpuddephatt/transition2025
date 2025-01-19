@@ -1,8 +1,18 @@
 <article @php post_class() @endphp>
   <div class="container">
+      <a href="/projects" class="back-link">&larr; Back to projects</a>
 
     <header class="entry-header entry-header__single-project">
       <h1 class="entry-header--title">{!! $post->title !!}</h1>
+
+      @if($post->services)
+<div class="tags">        
+      @foreach($post->services as $service)
+     
+        <a href="{{ get_term_link($service->term_id) }}" class="tag invert">{!! $service->name !!}</a>
+        @endforeach
+        </div>
+        @endif
       @if($post->thumbnail)
         <figure class="entry-header--image">
           {!! $post->thumbnail !!}

@@ -12,7 +12,7 @@
 
     {!! the_content() !!}
 
-    <div class="about-people">
+    <div id="our-people"  class="about-people">
       <h2 class="tag">Our people</h2>
       <div>
       <div class="about-people--grid">
@@ -46,8 +46,8 @@
 </div>
     </div>
 
-    <div class="about-services">
-      <h2 class="tag">Our services</h2>
+    <div id="our-services" class="about-services">
+      <h2  class="tag">Our services</h2>
       <p>Choose an area below to find out more about our approach and see examples of our work.</p>
       <ul class="about-services--list">
         @foreach($services as $service)

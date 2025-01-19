@@ -1,4 +1,11 @@
 .entry-content {
+
+  &__page {
+  h2 {
+    @extend .tag;
+  }
+}
+  
   &--project {
     @extend .tag;
 

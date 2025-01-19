@@ -27,6 +27,7 @@ class App extends Composer
             'siteName' => $this->siteName(),
             'meta' => $this->meta(),
             'title' => $this->title(),
+
             'baseName' => $this->baseName(),
         ];
     }
@@ -85,7 +86,7 @@ class App extends Composer
         }
         if (is_archive()) {
 
-            return get_queried_object()->label ?? single_term_title();
+            return get_queried_object()->label ?? single_term_title('', false);
         }
         if (is_search()) {
             return sprintf(__('Search Results for %s', 'sage'), get_search_query());

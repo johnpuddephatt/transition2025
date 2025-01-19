@@ -45,7 +45,6 @@ add_filter('excerpt_length', function ($length) {
     return 20;
 });
 
-add_filter("acf/settings/show_admin", "__return_false");
 
 add_filter("manage_projects_posts_columns", function ($columns) {
     $position = 2;

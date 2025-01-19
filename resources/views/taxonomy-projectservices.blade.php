@@ -4,7 +4,7 @@
 
   <div class="container">
 
-    @include('partials.page-header', ['class' => 'entry-header__services'])
+    @include('partials.page-header', ['class' => 'entry-header__services', 'header_title' => $title])
 
     <div class="projects-grid">
       @foreach($projects as $project)
@@ -20,5 +20,6 @@
     </div>
 
   </div>
+  @include('partials.newsletter')
 
 @endsection

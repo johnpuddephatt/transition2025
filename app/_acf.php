@@ -17,7 +17,7 @@ add_action("after_setup_theme", function () {
                     "type" => "image",
                     "instructions" => "",
                     "required" => 0,
-                    "conditional_logic" => 0,
+                    "conditional_log  ic" => 0,
                     "wrapper" => [
                         "width" => "",
                         "class" => "",
@@ -56,13 +56,13 @@ add_action("after_setup_theme", function () {
                 ],
                 [
                     "key" => "field_5e73f7600cc5b",
-                    "label" => "Display settings",
+                    "label" => "Display on About page?",
                     "name" => "user_display_settings",
                     "type" => "checkbox",
                     "choices" => [
-                        "display_on_about" => "Display on About page",
+                        "display_on_about" => "Member",
                         "display_on_about_associate" =>
-                        "Display on About page (associate)",
+                        "Associate",
                     ],
                     "instructions" => "",
                     "required" => 0,

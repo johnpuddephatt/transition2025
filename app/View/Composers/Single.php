@@ -29,6 +29,7 @@ class Single extends Composer
             $post->next_post = $navigation->next_post;
             $post->previous_post = $navigation->previous_post;
             $post->client = get_field('project_name');
+            $post->services = get_the_terms(null, 'projectservices');
             $post->footnotes = get_field('project_footnotes');
             $post->related_projects = $this->related_projects();
         } else if (get_post_type() == 'scraps') {
