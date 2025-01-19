@@ -1,0 +1,22 @@
+{
+  "app": {
+    "js": [
+      "js/runtime.375ea9.js",
+      "js/app.7ccee8.js"
+    ],
+    "css": [
+      "css/app.34abd1.css"
+    ],
+    "dependencies": []
+  },
+  "editor": {
+    "js": [
+      "js/runtime.375ea9.js",
+      "js/editor.eddddc.js"
+    ],
+    "css": [
+      "css/editor.7a789c.css"
+    ],
+    "dependencies": []
+  }
+}
