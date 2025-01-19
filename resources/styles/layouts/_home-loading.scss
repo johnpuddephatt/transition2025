@@ -1,0 +1,85 @@
+.loading {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  // background-color: $base-font-color;
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  user-select: none;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 300vw;
+    height: 300vh;
+    background-image: linear-gradient(-45deg, transparentize(white, 1) 0%, transparentize(white, 1), white 66.667%, $black 66.667%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loadingWipe 2s 4s $base-timing forwards;
+  }
+
+  .container {
+    width: 100%;
+    z-index: 99;
+    position: relative;
+  }
+
+  &--title {
+    text-transform: lowercase;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 0.01em;
+    font-size: modular-scale(6);
+    color: transparent;
+    width: 8.5em;
+    margin-bottom: 0;
+    animation: titleExit 1.5s 3.25s $base-timing forwards;
+
+    @media screen and (min-width: $medium-screen) {
+      font-size: modular-scale(8);
+    }
+
+    > * {
+      color: white;
+
+      @extend %letter-fade-in;
+    }
+  }
+}
+
+body.barba-loaded .loading {
+  display: none;
+}
+
+@keyframes loadingWipe {
+  50% {
+    opacity: 1;
+  }
+
+  99% {
+    transform: translate(-200vw, -200vh);
+    z-index: initial;
+  }
+
+  100% {
+    transform: translate(-200vw, -200vh);
+    z-index: -999;
+    opacity: 0;
+  }
+}
+
+@keyframes titleExit {
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,90 @@
+.home-projects {
+  margin-top: 4 * $base-spacing;
+  margin-bottom: 4 * $base-spacing;
+  position: relative;
+
+  .container {
+    position: relative;
+  }
+
+  .section-title {
+    font-size: modular-scale(8);
+
+    @media screen and (min-width: $medium-screen) {
+      font-size: modular-scale(12);
+      margin-left: -$small-spacing;
+
+      @supports (mix-blend-mode: difference) {
+        color: white;
+        will-change: transform;
+
+        &::before,
+        &::after {
+          // outline: 1px solid red;
+          height: 1em * 0.8;
+          content: "";
+          display: block;
+          position: absolute;
+          z-index: 9;
+          top: 0;
+          left: 0;
+          background-color: #fff;
+          mix-blend-mode: difference;
+          width: 4em;
+        }
+
+        &::after {
+          top: 1em * 0.8;
+          width: calc(50% + #{1.5 * $small-spacing});
+        }
+      }
+    }
+
+    font-weight: 500;
+    line-height: 0.8;
+    text-transform: lowercase;
+
+    @extend %fade-into-view;
+  }
+
+  &--intro {
+    position: relative;
+  }
+
+  &--title-image {
+    position: absolute;
+    z-index: -1;
+    bottom: -4.5 * $base-spacing;
+    display: none;
+    right: -2 * $base-spacing;
+    width: calc(50% + #{1.5 * $base-spacing});
+
+    @media screen and (min-width: $medium-screen) {
+      display: block;
+    }
+  }
+
+  &--intro--text {
+    @media screen and (min-width: $medium-screen) {
+      width: 50%;
+      margin-bottom: 5.5 * $base-spacing;
+    }
+
+    padding-right: $base-spacing;
+    margin-top: $base-spacing;
+  }
+
+  &--tag {
+    @extend .tag;
+
+    margin-top: $small-spacing;
+    font-size: modular-scale(-2);
+  }
+
+  &--read-more {
+    margin: (-$base-spacing) auto 0;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

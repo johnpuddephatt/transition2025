@@ -1,0 +1,31 @@
+.project-navigation {
+  &__scraps {
+    font-size: modular-scale(3);
+    max-width: $medium-screen;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  margin-top: $small-spacing/2;
+
+  .previous-project,
+  .next-project {
+    border-radius: 50%;
+    line-height: 2em;
+    width: 2em;
+    text-align: center;
+    display: inline-block;
+    border: 1px solid $light-gray;
+    transition: background-color $base-duration $base-timing;
+  }
+
+  a {
+    background-color: $light-gray;
+
+    &:hover {
+      background-color: $medium-gray;
+    }
+  }
+}

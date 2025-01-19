@@ -1,0 +1,138 @@
+header.banner {
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-left: $small-spacing;
+  padding-right: $small-spacing;
+  padding-bottom: $base-spacing;
+
+  @media screen and (min-width: $medium-screen) {
+    margin-top: 1.5 * $base-spacing;
+    padding-left: 2 * $base-spacing;
+    padding-right: 2 * $base-spacing;
+    padding-bottom: 0;
+  }
+
+  // .container {
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: space-between;
+  //   align-items: flex-start;
+  // }
+  //
+  .brand {
+    margin-top: -$small-spacing;
+
+    img {
+      display: block;
+      width: 4 * $base-spacing;
+      height: 4 * $base-spacing;
+    }
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+
+    a {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: modular-scale(-3);
+      letter-spacing: $wide-letter-spacing;
+    }
+
+    li + li {
+      margin-left: 2 * $base-spacing;
+    }
+  }
+
+  label[for="nav-trigger"] {
+    display: none;
+    float: right;
+    width: $base-spacing;
+    height: $base-spacing;
+    z-index: 100;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+  .nav-trigger {
+    display: none;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  @media screen and (max-width: $medium-screen) {
+    .nav {
+      flex-direction: column;
+
+      li {
+        margin-left: 0 !important;
+        margin-bottom: $base-spacing;
+      }
+
+      a {
+        color: white;
+        font-size: modular-scale(2);
+      }
+    }
+
+    label[for="nav-trigger"] {
+      display: block;
+    }
+
+    .menu-icon {
+      position: relative;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      float: right;
+      width: $base-spacing;
+      height: $base-spacing;
+      line-height: 0;
+      text-align: center;
+
+      > svg path {
+        fill: $base-font-color;
+        transition: fill $base-duration;
+      }
+
+      &:hover > svg path {
+        fill: $base-font-color;
+      }
+    }
+
+    input ~ .trigger {
+      position: fixed;
+      transform: translateX(100%);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: $base-font-color;
+      transition: transform $base-duration;
+    }
+
+    input:checked {
+      ~ .trigger {
+        z-index: 99;
+        transform: translateX(0);
+        opacity: 1;
+      }
+
+      ~ label[for="nav-trigger"] svg path {
+        fill: white;
+      }
+    }
+  }
+}

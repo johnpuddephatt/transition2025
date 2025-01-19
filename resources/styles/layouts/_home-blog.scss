@@ -1,0 +1,279 @@
+.home-blog {
+  margin-top: 4 * $base-spacing;
+  margin-bottom: 4 * $base-spacing;
+  position: relative;
+  transform-style: preserve-3d;
+
+  &::after {
+    content: "";
+    height: 20em;
+    position: absolute;
+    left: 42vw;
+    right: -50vw;
+    top: 30%;
+    z-index: 9999;
+    transform-style: preserve-3d;
+
+    @media screen and (min-width: $medium-screen) {
+      @include has-background-dots($dark-gray);
+
+      will-change: transform;
+      transform: translate3d(0, 0, 0.1px) scale(0.9);
+      opacity: 0.3;
+      transition: transform 2 * $base-duration $base-duration $base-timing, opacity 2 * $base-duration $base-duration $base-timing;
+      transform-origin: center center;
+    }
+  }
+
+  .section-title {
+    @extend %fade-into-view;
+
+    font-size: modular-scale(8);
+    font-weight: 500;
+    line-height: $big-heading-line-height;
+    text-transform: lowercase;
+
+    @media screen and (min-width: $medium-screen) {
+      margin-top: 6 * $base-spacing;
+      margin-left: - 4 * $base-spacing;
+      font-size: modular-scale(12);
+
+      @supports (mix-blend-mode: difference) {
+        color: white;
+      }
+    }
+
+    position: relative;
+    z-index: 0;
+    // &::before,
+    // &::after {
+    //   // outline: 1px solid red;
+    //   height: 1em * 0.8;
+    //   content: "";
+    //   display: block;
+    //   position: absolute;
+    //   z-index: 9;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   background-color: #fff;
+    //   mix-blend-mode: difference;
+    // }
+    //
+    // &::after {
+    //   width: 50%;
+    //   top: 1em * 0.8;
+    // }
+  }
+
+  .container {
+    @media screen and (min-width: $medium-screen) {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  }
+
+  &--image {
+    position: relative;
+    z-index: -9;
+
+    img {
+      display: block;
+    }
+  }
+
+  &--text {
+    width: 75%;
+    position: relative;
+    z-index: 99;
+  }
+
+  &--excerpt {
+    font-size: modular-scale(-1);
+    margin-bottom: $small-spacing;
+  }
+
+  &--title {
+    font-size: modular-scale(2);
+  }
+
+  &--tag {
+    @extend .tag;
+
+    margin: $base-spacing 0 1.5 * $small-spacing;
+    font-size: modular-scale(-2);
+  }
+
+  &--read-more {
+    font-size: modular-scale(-1);
+    text-transform: lowercase;
+
+    &::after {
+      content: "→";
+      display: inline-block;
+      margin-left: $small-spacing/2;
+    }
+  }
+
+  &--read-all {
+    float: right;
+    display: inline-block;
+    margin: $base-spacing 0;
+    line-height: $base-spacing;
+    text-transform: lowercase;
+    position: relative;
+    z-index: 99;
+    font-size: modular-scale(1);
+
+    &::after {
+      content: "→";
+      display: inline-block;
+      margin-left: $small-spacing/2;
+    }
+  }
+
+  .column {
+    flex: 0 0 50%;
+    position: relative;
+    margin-bottom: 1.5 * $base-spacing;
+
+    @media screen and (min-width: $medium-screen) {
+      margin-bottom: 0;
+
+      @supports (mix-blend-mode: difference) {
+        &:first-child {
+          .home-blog--mask {
+            display: block;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            height: calc(#{7.5 * $base-spacing} + #{2 * modular-scale(12) * $big-heading-line-height} - 2px);
+            z-index: 1;
+            width: 100%;
+            background-color: #fff;
+            mix-blend-mode: difference;
+          }
+        }
+      }
+    }
+
+    &:last-child {
+      .home-blog--mask {
+        pointer-events: none;
+        height: 50vh;
+        display: none;
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background-color: #fff;
+        mix-blend-mode: difference;
+
+        @media screen and (min-width: $medium-screen) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // &.in-view {
+  //   @media screen and (min-width: $medium-screen) {
+  //     &::after {
+  //       opacity: 1;
+  //     }
+  //   }
+  // }
+}
+
+.home-updates {
+  margin-bottom: 3 * $base-spacing;
+  position: relative;
+  transform-style: preserve-3d;
+
+  &::after {
+    content: "";
+    height: 20em;
+    position: absolute;
+    right: 40vw;
+    left: -50vw;
+    top: -20%;
+    z-index: 9999;
+    transform-style: preserve-3d;
+
+    @media screen and (min-width: $medium-screen) {
+      @include has-background-dots($dark-gray);
+
+      will-change: transform;
+      transform: translate3d(0, 0, 0.1px) scale(0.9);
+      opacity: 0.3;
+      transition: transform 2 * $base-duration $base-duration $base-timing, opacity 2 * $base-duration $base-duration $base-timing;
+      transform-origin: center center;
+    }
+  }
+
+  .section-title {
+    font-size: modular-scale(6);
+    text-transform: lowercase;
+    margin-bottom: 2 * $base-spacing;
+
+    @media screen and (min-width: $medium-screen) {
+      font-size: modular-scale(9);
+    }
+  }
+
+  .container {
+    @media screen and (min-width: $medium-screen) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &--item {
+    flex: 0 0 80%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2 * $base-spacing;
+    max-width: $small-screen;
+
+    @media screen and (min-width: $medium-screen) {
+      margin-bottom: 0;
+      flex: 1 0 40%;
+
+      + .home-updates--item {
+        margin-left: 2 * $base-spacing;
+      }
+    }
+
+    @media screen and (min-width: $large-screen) {
+      + .home-updates--item {
+        margin-left: 4 * $base-spacing;
+        margin-right: 2 * $base-spacing;
+      }
+    }
+
+    &--date {
+      margin-bottom: $small-spacing;
+    }
+
+    &--title {
+      font-size: modular-scale(2);
+      margin-bottom: $small-spacing !important;
+      padding-bottom: 0;
+    }
+
+    &--excerpt {
+      font-size: modular-scale(-1);
+      margin-bottom: $small-spacing;
+    }
+
+    &--read-more {
+      font-size: modular-scale(-1);
+      text-transform: lowercase;
+
+      &::after {
+        content: "→";
+        display: inline-block;
+        margin-left: $small-spacing/2;
+      }
+    }
+  }
+}

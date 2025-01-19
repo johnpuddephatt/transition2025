@@ -1,0 +1,61 @@
+$bourbon: (
+  "modular-scale-ratio": 1.1875
+);
+
+$small-screen: 600px;
+$medium-screen: 860px;
+$large-screen: 1120px;
+$xl-screen: 1400px;
+
+// Typography
+$base-font-family: "Avenir Next", "Avenir", "Nunito", $font-stack-system;
+$heading-font-family: $base-font-family;
+
+$max-line-length: 31rem;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.75;
+$heading-line-height: 1.2;
+$big-heading-line-height: 0.8;
+
+// Letter spacing
+$wide-letter-spacing: 0.15em;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1rem;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$black: #221f1f;
+$vanilla: #d2bfab;
+$dark-gray: #bebebe;
+$medium-gray: #eae5d9;
+$light-gray: #f9f7f6;
+$gray: #f2f0ef;
+
+// Font Colors
+$base-font-color: $black;
+$action-color: $black;
+$light-color: tint($base-font-color, 75%);
+
+// Border
+$base-border-color: $dark-gray;
+$base-border-width: 1px;
+$base-border: $base-border-width solid $base-border-color;
+
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: $light-color;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Animations
+$base-duration: 500ms;
+$base-timing: cubic-bezier(0.39, 0.58, 0.57, 1);

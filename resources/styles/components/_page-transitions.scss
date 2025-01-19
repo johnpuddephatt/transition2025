@@ -1,0 +1,84 @@
+/****
+** FADE
+*****/
+
+/* transition active state (same for leave and enter) */
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-active {
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+/* initial state */
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-enter {
+  transform: translateY($small-spacing);
+  opacity: 0;
+}
+
+/* ending state */
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/****
+** LEFT/RIGHT
+*****/
+
+/* transition active state (same for leave and enter) */
+
+.fade-left-leave-active,
+.right-leave-active,
+.left-leave-active {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.fade-left-enter-active,
+.right-enter-active,
+.left-enter-active {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.is-animating {
+  .fade-left-enter-active,
+  .right-enter-active,
+  .left-enter-active {
+    position: absolute;
+    width: 100%;
+    top: 6 * $base-spacing;
+  }
+}
+
+.fade-left-leave,
+.right-leave,
+.left-leave,
+.fade-left-enter-to,
+.left-enter-to,
+.right-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.fade-left-enter,
+.left-enter,
+.right-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.fade-left-leave-to,
+.right-enter,
+.left-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}

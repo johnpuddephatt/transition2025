@@ -1,0 +1,100 @@
+html {
+  box-sizing: border-box;
+  background-color: white;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  transform-origin: center center;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100vw;
+  overflow: hidden;
+}
+
+body {
+  display: block;
+
+  &.locked {
+    overflow: hidden;
+  }
+}
+
+@keyframes lockHomeOnLoad {
+  0%,
+  99% {
+    overflow: hidden;
+  }
+
+  100% {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
+body.home:not(.internal-referer, .barba-loaded) #app {
+  animation: lockHomeOnLoad 4.5s forwards;
+}
+
+#app {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100vw;
+  margin-top: 0;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
+
+  @media screen and (min-width: $medium-screen) {
+    transform-style: preserve-3d;
+    perspective: 1px;
+    perspective-origin: bottom right;
+  }
+}
+
+main,
+div[data-barba] {
+  // position: relative;
+  @media screen and (min-width: $large-screen) {
+    transform-style: preserve-3d;
+  }
+}
+
+main {
+  min-height: 30vh;
+}
+
+.container {
+  max-width: $large-screen;
+  margin: 0 auto;
+  padding-left: $base-spacing;
+  padding-right: $base-spacing;
+}
+
+.container__narrow {
+  max-width: $medium-screen;
+}
+
+.padded-box {
+  background-color: $light-color;
+  padding: $base-spacing;
+  margin: $base-spacing 0;
+  font-weight: 300;
+  font-size: modular-scale(-1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

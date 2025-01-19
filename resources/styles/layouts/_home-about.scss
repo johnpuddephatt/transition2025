@@ -1,0 +1,166 @@
+.home-about {
+  margin-top: 4 * $base-spacing;
+  margin-bottom: 6 * $base-spacing;
+
+  @media screen and (min-width: $medium-screen) {
+    margin-bottom: 0;
+  }
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+
+  &::before {
+    content: "";
+    height: 50%;
+    position: absolute;
+    top: 62.5%;
+    z-index: 99;
+    right: 5vw;
+    width: 60vw;
+    opacity: 0.5;
+
+    @include has-background-dots(transparentize(#fff, 0.3));
+
+    @media screen and (min-width: $medium-screen) {
+      will-change: transform;
+      transform-style: preserve-3d;
+      transform: translate3d(0, 0, 0.15px) scale(0.85);
+    }
+  }
+
+  &--background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    &::after {
+      display: block;
+      content: "";
+      position: absolute;
+      width: calc(200vw + 100vh - #{4 * $base-spacing});
+      height: 100%;
+      right: 0;
+      z-index: -9;
+      background-color: $vanilla;
+      transition: transform 3 * $base-duration $base-timing, opacity 3 * $base-duration $base-timing;
+      transform: translateX(calc(100vw + 100vh));
+      opacity: 0;
+      background-image: linear-gradient(135deg, white calc(50% + #{$base-spacing}), $vanilla calc(50% + #{$base-spacing}));
+
+      @media screen and (min-width: $medium-screen) {
+        background-image: linear-gradient(135deg, white calc(50% + #{4 * $base-spacing}), $vanilla calc(50% + #{4 * $base-spacing}));
+      }
+
+      html.no-js & {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+  }
+
+  .container {
+    transform-style: preserve-3d;
+    width: 100%;
+    // position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5ODYuNiIgaGVpZ2h0PSI5ODYuNiIgdmlld0JveD0iMCAwIDk4Ni42IDk4Ni42Ij48cGF0aCBvcGFjaXR5PSIuMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjEuNTY4IiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIGQ9Ik05MTkuOCAzOS41SDcxNi40Yy0xMC43IDAtMTkuMy04LjctMTkuMy0xOS4zIDAtMTAuNyA4LjctMTkuMyAxOS4zLTE5LjNoMjUwLjFjMS4yIDAgMi41LjEgMy44LjRoMGMuMi4xLjUuMS43LjJsLjkuM2gwdjBsLjYuMmguMWMuMSAwIC4yLjEuMy4xbC45LjNjLjMuMS41LjMuOC40LjEuMS4yLjEuMy4ybC43LjRoMHYwbC45LjUuNi4zaDBjLjkuNiAxLjggMS4zIDIuNSAyIDAgLjEuMS4xLjIuMWwuMy41LjMuMmMuNi43IDEuMiAxLjQgMS43IDIuMi4xLjEuMi4yLjMuNGgwYy4xLjIuMi40LjQuN2wuNC45aDBsLjQuOGMuMi4zLjMuNi41IDF2LjFjLjEuMi4yLjUuMy44IDAgLjEuMS4zLjEuNGgwbC4yLjcuMy45di4xYzAgLjEuMS4yLjEuNGwuMS4yYy4zIDEuMy40IDIuNi40IDMuOHYyNTAuMWMwIDEwLjctOC43IDE5LjMtMTkuMyAxOS4zLTEwLjcgMC0xOS4zLTguNy0xOS4zLTE5LjNWNjYuOEw2Ni44IDk0Ny4yaDIwMy40YzEwLjYgMCAxOS4zIDguNyAxOS4zIDE5LjMgMCAxMC42LTguNyAxOS4zLTE5LjMgMTkuM0gyMC4xYy0uOCAwLTEuNi0uMS0yLjUtLjNoMGMtLjIgMC0uNCAwLS42LS4xLS4yIDAtLjQgMC0uNy0uMWgwdjBjLS4yIDAtLjQtLjEtLjctLjJoMGwtLjktLjNoMGwtLjctLjJoMC0uMSAwYy0uNC0uMS0uOC0uMi0xLjItLjRoMGMtLjQtLjItLjctLjQtMS4xLS42aC0uMWwtLjYtLjN2MGgwdjBsLS44LS40LS42LS4zYy0uOS0uNi0xLjctMS4zLTIuNS0ybC0uMi0uMi0uMy0uNS0uMi0uMWMtLjctLjgtMS40LTEuNi0yLTIuNSAwLS4xLS4xLS4xLS4xLS4xaDBjLS4yLS4yLS4yLS40LS40LS43bC0uNS0uOWgwdjBoMGwtLjQtLjdoMGMtLjItLjQtLjQtLjctLjUtMS0uMS0uMS0uMS0uMy0uMS0uNS0uMS0uMy0uMi0uNS0uMy0uOHYwbC0uMi0uN2gwbC0uNC0uOXYtLjFjLS4xLS4yLS4yLS40LS4yLS42LS4zLTEuMy0uNC0yLjYtLjQtMy44VjcxNi40YzAtMTAuNiA4LjctMTkuMyAxOS4zLTE5LjMgMTAuNyAwIDE5LjMgOC43IDE5LjMgMTkuM3YyMDMuNEw5MTkuOCAzOS41eiIvPjwvc3ZnPg==");
+      background-size: contain;
+      background-position: right;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &--text {
+    position: relative;
+    z-index: 9;
+    margin-top: 4 * $base-spacing;
+    margin-bottom: 4 * $base-spacing;
+    opacity: 0;
+    transition: opacity ($base-duration * 3) $base-duration $base-timing, transform ($base-duration * 2) $base-duration $base-timing;
+    text-shadow: 0 0 3 * $base-spacing darken($vanilla, 50%);
+
+    html.no-js & {
+      opacity: 1;
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      margin-top: 8 * $base-spacing;
+      right: -4 * $base-spacing;
+      will-change: transform;
+      transform-style: preserve-3d;
+      perspective-origin: center center;
+      transform: translate3d(0, $small-spacing, 0.2px) scale(0.8);
+    }
+  }
+
+  &--title {
+    font-size: modular-scale(4);
+    font-weight: 400;
+    color: white;
+    margin-bottom: $base-spacing;
+
+    @media screen and (min-width: $medium-screen) {
+      width: 65%;
+      font-size: modular-scale(6);
+    }
+  }
+
+  &--image {
+    position: absolute;
+    right: $small-spacing;
+    bottom: -3 * $base-spacing;
+    width: 55%;
+    height: auto;
+    opacity: 0;
+    transition: opacity ($base-duration * 3) $base-duration $base-timing, transform ($base-duration * 2) $base-duration $base-timing;
+    text-shadow: 0 0 3 * $base-spacing darken($vanilla, 50%);
+    transform: translate(0, $small-spacing);
+
+    html.no-js & {
+      opacity: 1;
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      right: -2 * $base-spacing;
+      bottom: -2 * $base-spacing;
+      will-change: transform;
+      transform-style: preserve-3d;
+      transform: translate3d(0, $base-spacing, 0.1px) scale(0.9);
+    }
+  }
+
+  &.in-view {
+    .home-about--background::after {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .home-about--text {
+      opacity: 1;
+
+      @media screen and (min-width: $medium-screen) {
+        transform: translate3d(0, 0, 0.2px) scale(0.8);
+      }
+    }
+
+    .home-about--image {
+      opacity: 1;
+
+      @media screen and (min-width: $medium-screen) {
+        transform: translate3d(0, 0, 0.1px) scale(0.9);
+      }
+    }
+  }
+}
