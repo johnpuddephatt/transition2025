@@ -15,15 +15,28 @@ class Posts extends Composer
     {
         return [
             'posts' => $this->posts(),
+            'posts_per_page' => get_option('posts_per_page'),
+            'post_count' => count(\get_posts([
+                'post_type' => 'post',
+                'posts_per_page' => 9999,
+            ])),
         ];
     }
 
     public function posts()
     {
-        $posts = get_posts([
-            'post_type' => 'Post',
-            'posts_per_page' => get_option('posts_per_page')
-        ]);
+        $posts = (new \WP_Query(
+            [
+                'post_type' => 'post',
+                'posts_per_page' => get_option('posts_per_page'),
+                'paged' => get_query_var('paged'),
+
+                'orderby' => 'date',
+                'order' => 'DESC',
+
+            ]
+        ))->get_posts();
+
 
         return array_map(function ($post) {
             $post->excerpt = get_the_excerpt($post->ID);

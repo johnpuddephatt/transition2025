@@ -38,6 +38,16 @@
       @endforeach
     </div>
 
+    <div class="pagination">
+     {!! paginate_links([
+        'prev_text' => '<',
+        'next_text' => '>',
+        'total' => round($post_count / $posts_per_page),
+        'add_fragment' => '#events',
+    ]) !!}
+      </div>
+
+
   </div>
   @include('partials.newsletter')
 

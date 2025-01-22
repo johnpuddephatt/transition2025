@@ -24,7 +24,8 @@ class ArchiveProjects extends Composer
 
         $projects = get_posts([
             'post_type' => 'projects',
-            'posts_per_page' => '12',
+            'posts_per_page' => 999
+
         ]);
 
         $loop_index = 0;

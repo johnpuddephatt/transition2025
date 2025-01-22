@@ -70,3 +70,10 @@
         margin-bottom: -2 * $base-spacing;
     }
 }
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    flex-direction: row;
+}
