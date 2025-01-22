@@ -42,11 +42,22 @@
     </div>
   </div>
   <div class="site-footer--logos">
-    <a href="https://uk.coop/directory/transition-design-cooperative">
-      <img src="@asset('images/cuk_member.svg')" />
+   <a target="_blank" href="https://www.architecture.com/find-an-architect/transition-by-design/oxford">
+      <img class="logo-1" src="@asset('images/RIBA-logo.svg')" />
     </a>
-    <a href="https://www.architecture.com/find-an-architect/transition-by-design/oxford">
-      <img src="@asset('images/RIBA-logo.svg')" />
+
+    <a target="_blank" href="https://uk.coop/directory/transition-design-cooperative">
+      <img  class="logo-2" src="@asset('images/cuk_member.svg')" />
     </a>
+   
+      <a target="_blank" href="https://www.workers.coop/">
+      <img class="logo-3"  src="@asset('images/workers-coop.png')" />
+    </a>
+
+      <a target="_blank" href="https://www.oxford.gov.uk/fairer-economy/oxford-living-wage">
+      <img class="logo-4"  src="@asset('images/oxfordlivingwage.png')" />
+    </a>
+
+
   </div>
 </footer>

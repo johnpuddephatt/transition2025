@@ -82,13 +82,47 @@
       max-width: 25vw;
     }
 
+    .logo-1 {
+      width: 5.5rem;
+      height: auto;
+          @media screen and (min-width: $medium-screen) {
+width: 7rem;
+}
+    }
+
+     .logo-2 {
+      width: 6rem;
+      height: auto;
+          @media screen and (min-width: $medium-screen) {
+width: 7rem;
+}
+    }
+
+     .logo-3 {
+      width: 7rem;
+      height: auto;
+          @media screen and (min-width: $medium-screen) {
+width: 8rem;
+}
+    }
+
+     .logo-4 {
+      width: 4.5rem;
+      height: auto;
+          @media screen and (min-width: $medium-screen) {
+width: 6rem;
+}
+    }
+
     a + a {
       display: inline-block;
-      margin-left: $small-spacing;
-
-      @media screen and (min-width: $large-screen) {
-        margin-left: $base-spacing;
-      }
+      margin-left: $small-spacing/2;
+@media screen and (min-width: $medium-screen) {
+  margin-left: $small-spacing;
+}
+      // @media screen and (min-width: $large-screen) {
+      //   margin-left: $base-spacing;
+      // }
     }
   }
 }

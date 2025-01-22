@@ -1,5 +1,5 @@
 {
-  "app.css": "css/app.4a8f1b.css",
+  "app.css": "css/app.86c0f2.css",
   "app.js": "js/app.b9286c.js",
   "editor.css": "css/editor.84ceee.css",
   "editor.js": "js/editor.bda079.js",
@@ -25,8 +25,10 @@
   "fonts/NunitoSans-Regular.woff2": "fonts/NunitoSans-Regular.00bd50.woff2",
   "../theme.json": "../theme.json",
   "images/writing.jpg": "images/writing.16c39e.jpg",
+  "images/oxfordlivingwage.png": "images/oxfordlivingwage.829618.png",
   "images/textures/asfalt-dark.png": "images/textures/asfalt-dark.be2cf33f0ee0128e.png",
   "images/RIBA-logo.svg": "images/RIBA-logo.9e3026.svg",
+  "images/workers-coop.png": "images/workers-coop.062760.png",
   "images/textures/noise-overlay.png": "images/textures/noise-overlay.8d27b80e9c883a2b.png",
   "images/textures/noise-overlay-2.png": "images/textures/noise-overlay-2.7de1b9e5df506193.png",
   "images/cuk_member.svg": "images/cuk_member.beb281.svg",
