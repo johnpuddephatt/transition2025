@@ -38,9 +38,9 @@
       margin-left: - 4 * $base-spacing;
       font-size: modular-scale(12);
 
-      @supports (mix-blend-mode: difference) {
-        color: white;
-      }
+      // @supports (mix-blend-mode: difference) {
+      //   color: white;
+      // }
     }
 
     position: relative;
@@ -140,39 +140,39 @@
     @media screen and (min-width: $medium-screen) {
       margin-bottom: 0;
 
-      @supports (mix-blend-mode: difference) {
-        &:first-child {
-          .home-blog--mask {
-            display: block;
-            pointer-events: none;
-            position: absolute;
-            top: 0;
-            height: calc(#{7.5 * $base-spacing} + #{2 * modular-scale(12) * $big-heading-line-height} - 2px);
-            z-index: 1;
-            width: 100%;
-            background-color: #fff;
-            mix-blend-mode: difference;
-          }
-        }
-      }
+      // @supports (mix-blend-mode: difference) {
+      //   &:first-child {
+      //     .home-blog--mask {
+      //       display: block;
+      //       pointer-events: none;
+      //       position: absolute;
+      //       top: 0;
+      //       height: calc(#{7.5 * $base-spacing} + #{2 * modular-scale(12) * $big-heading-line-height} - 2px);
+      //       z-index: 1;
+      //       width: 100%;
+      //       background-color: #fff;
+      //       mix-blend-mode: difference;
+      //     }
+      //   }
+      // }
     }
 
-    &:last-child {
-      .home-blog--mask {
-        pointer-events: none;
-        height: 50vh;
-        display: none;
-        position: absolute;
-        z-index: 1;
-        width: 100%;
-        background-color: #fff;
-        mix-blend-mode: difference;
+    // &:last-child {
+    //   .home-blog--mask {
+    //     pointer-events: none;
+    //     height: 50vh;
+    //     display: none;
+    //     position: absolute;
+    //     z-index: 1;
+    //     width: 100%;
+    //     background-color: #fff;
+    //     mix-blend-mode: difference;
 
-        @media screen and (min-width: $medium-screen) {
-          display: block;
-        }
-      }
-    }
+    //     @media screen and (min-width: $medium-screen) {
+    //       display: block;
+    //     }
+    //   }
+    // }
   }
 
   // &.in-view {

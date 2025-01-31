@@ -7,7 +7,7 @@
         </a>
         <a href="/articles/" class="home-blog--read-all">Read all</a>
         <div class="home-blog--article">
-          <div class="home-blog--mask"></div>
+          {{-- <div class="home-blog--mask"></div> --}}
           <div class="home-blog--image">
             {!! $writing->thumbnail !!}
           </div>
@@ -24,7 +24,7 @@
           <div class="home-blog--image">
             {!! $research->thumbnail !!}
           </div>
-          <div class="home-blog--mask"></div>
+          {{-- <div class="home-blog--mask"></div> --}}
           <div class="home-blog--text">
             <div class="home-blog--tag">Research</div>
             <h3 class="home-blog--title">{{ $research->post_title }}</h3>

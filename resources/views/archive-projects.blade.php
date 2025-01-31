@@ -10,6 +10,12 @@
 
     @include('partials.page-header', ['class' => 'entry-header__section', 'header_title' => $title])
 
+  <ul class="about-services--list">
+        @foreach($services as $service)
+          <li><a class="about-services--list--item--anchor" href="/service/{{$service->slug }}">{!! $service->name !!}</a></li>
+        @endforeach
+      </ul>
+      
     <div class="projects-grid projects-grid--wrapper projects-grid--wrapper__irregular">
       <div class="projects-grid projects-grid__irregular">
         @foreach($projects as $project)

@@ -42,23 +42,25 @@
           @endforeach
                 </div>
 
+<a class="button" target="_blank" href="https://tbd.super.site/associates">Apply to become an associate</a>
         @endif
 </div>
     </div>
-
+<br><br><br><br>
     <div id="our-services" class="about-services">
       <h2  class="tag">Our services</h2>
-      <p>Choose an area below to find out more about our approach and see examples of our work.</p>
-      <ul class="about-services--list">
+      <p class="ml-auto max-w-sm">Choose an area below to find out more about our approach and see examples of our work.</p>
+      {{-- <ul class="about-services--list">
         @foreach($services as $service)
           <li><a class="about-services--list--item--anchor" href="/service/{{$service->slug }}">{!! $service->name !!}</a></li>
         @endforeach
-      </ul>
-    </div>
-
-
-
+      </ul>  --}}
+      <div>
+      <a class="button" href="/services">View all services</a>
+      </div>
+    </div> 
   </main>
+
 
   <div class="entry-content--sidebar">
     <h2 class="tag">Contact us</h2>

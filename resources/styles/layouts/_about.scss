@@ -110,6 +110,7 @@
 }
 
 .about-services {
+  text-align: right;
   &--list {
     @media screen and (min-width: $large-screen) {
       padding: $base-spacing 0 2 * $base-spacing;

@@ -61,6 +61,13 @@
 /** Scraps page **/
 @import "layouts/scraps-archive";
 
+.ml-auto {
+    margin-left: auto;
+}
+
+.max-w-sm {
+    max-width: 22rem !important;
+}
 
 .back-link {
     display: inline-block;

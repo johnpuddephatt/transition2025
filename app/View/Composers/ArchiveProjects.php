@@ -16,7 +16,16 @@ class ArchiveProjects extends Composer
         return [
             'title' => 'Projects',
             'projects' => $this->projects(),
+            'services' => $this->services(),
         ];
+    }
+
+    public function services()
+    {
+        return get_terms([
+            "taxonomy" => "projectservices",
+            "hide_empty" => false,
+        ]);
     }
 
     public function projects()
