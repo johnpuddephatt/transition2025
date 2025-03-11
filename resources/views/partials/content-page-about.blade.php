@@ -17,7 +17,7 @@
       <div>
         <div class="about-people--grid">
           @foreach ($team as $user)
-            <a href="/about/{{ $user->user_login }}" class="about-people--grid--item">
+            <a href="{{ get_author_posts_url($user->ID) }}" class="about-people--grid--item">
               <div class="about-people--grid--item--image">{!! $user->image !!}</div>
               <h3>{{ $user->display_name }}</h3>
               <p>{{ $user->position }}</p>
@@ -30,7 +30,7 @@
           <div class="about-people--grid">
 
             @foreach ($associates as $user)
-              <a href="/about/{{ $user->user_login }}" class="about-people--grid--item">
+              <a href="{{ get_author_posts_url($user->ID) }}" class="about-people--grid--item">
                 <div class="about-people--grid--item--image">{!! $user->image !!}</div>
                 <h3>{{ $user->display_name }}</h3>
                 <p>{{ $user->position }}</p>
