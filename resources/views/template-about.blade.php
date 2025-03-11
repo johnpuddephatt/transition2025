@@ -1,6 +1,4 @@
-{{--
-  Template Name: About
---}}
+{{-- Template Name: About --}}
 
 @extends('layouts.app')
 
