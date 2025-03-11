@@ -8,7 +8,7 @@
       </figure>
     @endif
 
-    <h2 class="tag">About us</h2>
+    {{-- <h2 class="tag">About us</h2>
 
     {!! the_content() !!}
 
@@ -51,7 +51,7 @@
       <div>
         <a class="button" href="/services">View all services</a>
       </div>
-    </div>
+    </div> --}}
   </main>
 
   <div class="entry-content--sidebar">
