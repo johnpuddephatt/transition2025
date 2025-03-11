@@ -24,7 +24,9 @@
       
         <p class="entry-header--intro">{!! nl2br($author->description) !!}</p>
         <ul class="entry-header--contact">
+          @if(in_array('display_on_about',$author->type))
           @if($author->user_email)<li class="contact-email"><a href="mailto:{{ $author->user_email }}">{{ $author->user_email }}</a></li>@endif
+          @endif
           @if($author->phone_number)<li class="contact-phone"><a href="tel:{{ $author->user_email }}">{{ $author->phone_number }}</a></li>@endif
           @if($author->instagram)<li class="contact-instagram"><a href="//instagram.com/{{ $author->instagram }}">&#64;{{ $author->twitter }}</a></li>@endif
           @if($author->twitter)<li class="contact-twitter"><a href="//twitter.com/{{ $author->twitter }}">&#64;{{ $author->twitter }}</a></li>@endif
