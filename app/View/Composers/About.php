@@ -7,7 +7,8 @@ use Roots\Acorn\View\Composer;
 class About extends Composer
 {
     protected static $views = [
-        "about",
+        "template-about",
+        "template-about-2",
     ];
 
     public function with()
