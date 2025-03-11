@@ -51,7 +51,7 @@
       <div>
         <a class="button" href="/services">View all services</a>
       </div>
-    </div> --}}
+    </div> 
   </main>
 
   <div class="entry-content--sidebar">
@@ -64,5 +64,5 @@
     <a class="sidebar--phone contact-phone"
       href="telto:{{ get_theme_mod('contact_phone', '00441865554927') }}">{{ get_theme_mod('contact_phone_human', '(+44) 1865 554927') }}</a>
   </div>
-
+--}}
 </div>
