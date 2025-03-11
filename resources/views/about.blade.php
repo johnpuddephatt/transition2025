@@ -10,10 +10,8 @@
     <div class="container">
       @include('partials.page-header', ['class' => 'entry-header__single-page'])
 
-      @if ($page->thumbnail)
-        <figure class="entry-header--image entry-header--image__page">
-          {!! $page->thumbnail !!}
-        </figure>
+      @if (true)
+        Is true
       @endif
 
       @include('partials.content-page-about')
