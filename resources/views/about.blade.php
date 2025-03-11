@@ -9,11 +9,6 @@
     @php the_post() @endphp
     <div class="container">
       @include('partials.page-header', ['class' => 'entry-header__single-page'])
-
-      @if (true)
-        Is true
-      @endif
-
       @include('partials.content-page-about')
     </div>
   @endwhile
