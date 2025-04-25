@@ -1,3 +1,45 @@
+@php
+  $people = '
+ <div id="our-people" class="about-people">
+      <h2 class="tag">Our people</h2>
+      <div>
+        <div class="about-people--grid">
+          @foreach ($team as $user)
+<a href="{{ get_author_posts_url($user->ID) }}" class="about-people--grid--item">
+              <div class="about-people--grid--item--image">{!! $user->image !!}</div>
+              <h3>{{ $user->display_name }}</h3>
+              <p>{{ $user->position }}</p>
+            </a>
+@endforeach
+        </div>
+
+        @if (isset($associates) && count($associates))
+<h3>Associates</h3>
+          <div class="about-people--grid">
+
+            @foreach ($associates as $user)
+<a href="{{ get_author_posts_url($user->ID) }}" class="about-people--grid--item">
+                <div class="about-people--grid--item--image">{!! $user->image !!}</div>
+                <h3>{{ $user->display_name }}</h3>
+                <p>{{ $user->position }}</p>
+              </a>
+@endforeach
+          </div>
+
+          <a class="button" target="_blank" href="https://tbd.super.site/associates">Apply to become an associate</a>
+@endif
+      </div>
+    </div>';
+
+  $content = str_replace('[people]', $people, get_the_content());
+
+  $html = \Illuminate\Support\Facades\Blade::render($content, [
+      'team' => $team,
+      'associates' => $associates,
+  ]);
+
+@endphp
+
 <div class="entry-content entry-content__page">
 
   <main class="entry-content--main">
@@ -10,42 +52,12 @@
 
     <h2 class="tag">About us</h2>
 
-    {!! the_content() !!}
+    {!! $html !!}
 
-    <div id="our-people" class="about-people">
-      <h2 class="tag">Our people</h2>
-      <div>
-        <div class="about-people--grid">
-          @foreach ($team as $user)
-            <a href="{{ get_author_posts_url($user->ID) }}" class="about-people--grid--item">
-              <div class="about-people--grid--item--image">{!! $user->image !!}</div>
-              <h3>{{ $user->display_name }}</h3>
-              <p>{{ $user->position }}</p>
-            </a>
-          @endforeach
-        </div>
-
-        @if (isset($associates) && count($associates))
-          <h3>Associates</h3>
-          <div class="about-people--grid">
-
-            @foreach ($associates as $user)
-              <a href="{{ get_author_posts_url($user->ID) }}" class="about-people--grid--item">
-                <div class="about-people--grid--item--image">{!! $user->image !!}</div>
-                <h3>{{ $user->display_name }}</h3>
-                <p>{{ $user->position }}</p>
-              </a>
-            @endforeach
-          </div>
-
-          <a class="button" target="_blank" href="https://tbd.super.site/associates">Apply to become an associate</a>
-        @endif
-      </div>
-    </div>
     <br><br><br><br>
     <div id="our-services" class="about-services">
       <h2 class="tag">Our services</h2>
-      <p class="ml-auto max-w-sm">Choose an area below to find out more about our approach and see examples of our work.
+      <p class="ml-auto max-w-sm">Find out more about our approach and see examples of our work.
       </p>
 
       <div>
